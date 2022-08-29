@@ -13,10 +13,13 @@ import {
 
 import { itemInputs } from "../src/views/Items/const";
 
+const baseURL = "https://stupendous-chaja-374541.netlify.app/";
+// const baseURL = "http://localhost:3000/"
 test.describe("items test", () => {
   test("successful item post", async ({ page }) => {
+    await page.goto(`${baseURL}`);
     await itemsGetBeforeCreateNewItem(page);
-    await page.goto("http://localhost:3000/items");
+    await page.locator('a:has-text("Items")').click();
 
     await page.locator("tr").first().waitFor();
     expect(await page.locator("tr").count()).toEqual(
@@ -42,8 +45,9 @@ test.describe("items test", () => {
   });
 
   test("unsuccessful item post", async ({ page }) => {
+    await page.goto(`${baseURL}`);
     await itemsGetBeforeCreateNewItem(page);
-    await page.goto("http://localhost:3000/items");
+    await page.locator('a:has-text("Items")').click();
 
     await page.locator("tr").first().waitFor();
     expect(await page.locator("tr").count()).toEqual(
@@ -64,8 +68,9 @@ test.describe("items test", () => {
   });
 
   test("item form validations", async ({ page }) => {
+    await page.goto(`${baseURL}`);
     await itemsGetBeforeCreateNewItem(page);
-    await page.goto("http://localhost:3000/items");
+    await page.locator('a:has-text("Items")').click();
 
     await page.locator('button:has-text("New Item")').click();
     const submitButton = page.locator('button:has-text("Submit")');
