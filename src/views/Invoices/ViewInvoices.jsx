@@ -40,14 +40,14 @@ const ViewInvoices = () => {
     setIsModalOpen(!isModalOpen);
   }
 
-  const handleChange = (event) => {
-    // const val = event.target.value;
-    // axios
-    //   .get(`http://localhost:8080/v1/invoice/?field=name&value=${val}`)
-    //   .then((response) => {
-    //     setFilteredInvoiceList(response.data || []);
-    //   });
-  };
+  // const handleChange = (event) => {
+  // const val = event.target.value;
+  // axios
+  //   .get(`http://localhost:8080/v1/invoice/?field=name&value=${val}`)
+  //   .then((response) => {
+  //     setFilteredInvoiceList(response.data || []);
+  //   });
+  // };
 
   const showInvoice = async (row) => {
     setInvoice({});
