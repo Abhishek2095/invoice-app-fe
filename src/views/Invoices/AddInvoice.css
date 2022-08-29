@@ -1,0 +1,125 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.customerInfo-date-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.customer-container {
+  display: flex;
+  display: flex;
+  min-width: 300px;
+  max-width: 400px;
+  min-height: 5em;
+  max-height: 8em;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 5px;
+  flex-direction: column;
+}
+
+.customer-container-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 1.2em;
+  padding-bottom: 5px;
+}
+
+.input-title {
+  display: flex;
+  color: #b6b6b8;
+}
+
+.text-type {
+  background: none;
+  border: none;
+  color: #4b41d8;
+  padding: 0px;
+  border-radius: 0px;
+  font-size: 1em;
+}
+
+.add-customer {
+  display: flex;
+}
+
+.dateInputs {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 400px;
+  max-width: 450px;
+  border: 1px solid grey;
+  padding: 0px 10px;
+  justify-content: space-between;
+}
+
+.dateContainer {
+  display: flex;
+  width: 40%;
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.add-item {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.notes-total {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.notes {
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  font-size: 0.8em;
+}
+
+.notes-textarea {
+  border-radius: 2px;
+  border: 1px solid lightgray;
+  height: 5em;
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.totalAmount {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+
+.totalAmount .label {
+  display: flex;
+  padding: 0px 20px;
+  font-weight: bold;
+}
+
+.totalAmount .amount {
+  color: blue;
+}
+
+.errorMsg {
+  font-size: 0.8em;
+  color: red;
+}

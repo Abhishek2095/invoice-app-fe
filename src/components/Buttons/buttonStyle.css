@@ -1,0 +1,39 @@
+button {
+  background-color: #5851d9;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: none;
+  display: flex;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+}
+
+.button-label {
+  display: flex;
+}
+
+.center {
+  margin-top: 6px;
+}
+
+.end {
+  align-self: flex-end;
+}
+
+.text-type {
+  background: none;
+  border: none;
+  color: #4b41d8;
+  padding: 0px;
+  border-radius: 0px;
+  font-size: 1em;
+}
+
+.button-icon {
+  display: flex;
+  padding: 0px 3px 0px 0px;
+}
