@@ -13,8 +13,8 @@ import {
 
 import { itemInputs } from "../src/views/Items/const";
 
-// const baseURL = "https://stupendous-chaja-374541.netlify.app/";
-const baseURL = "http://localhost:3000/";
+const baseURL = "https://stupendous-chaja-374541.netlify.app/";
+// const baseURL = "http://localhost:3000/";
 test.describe("items test", () => {
   test("successful item post", async ({ page }) => {
     await page.goto(`${baseURL}`);
