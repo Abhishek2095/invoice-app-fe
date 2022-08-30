@@ -39,6 +39,7 @@ test.describe("items test", () => {
 
     await itemsGetAfterCreateNewItem(page);
 
+    await page.locator("tr").first().waitFor();
     page.locator(`text=${itemToAdd.Name}`);
     expect(await page.locator("tr").count()).toEqual(
       itemsAfterCreateNewItem.items.length + 1
