@@ -39,8 +39,9 @@ test.describe("items test", () => {
 
     await itemsGetAfterCreateNewItem(page);
 
-    await page.locator("tr").first().waitFor();
-    await expect(page.locator(`text=${itemToAdd.Name}`)).toHaveText(`${itemToAdd.Name}`);
+    await expect(page.locator(`text=${itemToAdd.Name}`)).toHaveText(
+      `${itemToAdd.Name}`
+    );
     expect(await page.locator("tr").count()).toEqual(
       itemsAfterCreateNewItem.items.length + 1
     );
@@ -69,7 +70,7 @@ test.describe("items test", () => {
     page.locator("text=Something went wrong");
   });
 
-  test("item form validations", async ({ page }) => {
+  test.only("item form validations", async ({ page }) => {
     await page.goto(`${baseURL}`);
     await itemsGetBeforeCreateNewItem(page);
     await page.locator('a:has-text("Items")').click();
@@ -83,7 +84,38 @@ test.describe("items test", () => {
       (input) => `${input.label} is required`
     );
 
-    emptyFieldErrors.forEach((errMsg) => page.locator(`text=${errMsg}`));
+    // await expect(page.locator(`text=hello`)).toHaveText(`hello`);
+
+    // await expect(page.locator(`text=${emptyFieldErrors[0]}`)).toHaveText(
+    //   `${emptyFieldErrors[0]}`
+    // );
+
+    // await expect(page.locator(`text=${emptyFieldErrors[0]}`)).toHaveText(
+    //   `${emptyFieldErrors[0]}`
+    // );
+
+    // await expect(page.locator(`text=${emptyFieldErrors[1]}`)).toHaveText(
+    //   `${emptyFieldErrors[1]}`
+    // );
+
+    // await expect(page.locator(`text=${emptyFieldErrors[2]}`)).toHaveText(
+    //   `${emptyFieldErrors[2]}`
+    // );
+
+    // await expect(page.locator(`text=${emptyFieldErrors[3]}`)).toHaveText(
+    //   `${emptyFieldErrors[3]}`
+    // );
+
+    for (let i = 0; i < emptyFieldErrors.length; i++) {
+      await expect(page.locator(`text=${emptyFieldErrors[i]}`)).toHaveText(
+        `${emptyFieldErrors[i]}`
+      );
+    }
+
+    // emptyFieldErrors.forEach(async (errMsg) => {
+    //   console.log(errMsg);
+    //   await expect(page.locator(`text=${errMsg}`)).toHaveText(`${errMsg}`);
+    // });
 
     // await page.fill('[placeholder="Item name"]', itemToAdd.Name);
     // await page.fill(
