@@ -13,10 +13,10 @@ import {
 
 import { itemInputs } from "../src/views/Items/const";
 
-const baseURL = "https://stupendous-chaja-374541.netlify.app/";
-// const baseURL = "http://localhost:3000/"
+// const baseURL = "https://stupendous-chaja-374541.netlify.app/";
+const baseURL = "http://localhost:3000/";
 test.describe("items test", () => {
-  test("successful item post", async ({ page }) => {
+  test.only("successful item post", async ({ page }) => {
     await page.goto(`${baseURL}`);
     await itemsGetBeforeCreateNewItem(page);
     await page.locator('a:has-text("Items")').click();
@@ -38,7 +38,8 @@ test.describe("items test", () => {
     await page.locator('button:has-text("Submit")').click();
 
     await itemsGetAfterCreateNewItem(page);
-    await page.locator("tr").first().waitFor();
+
+    page.locator(`text=${itemToAdd.Name}`);
     expect(await page.locator("tr").count()).toEqual(
       itemsAfterCreateNewItem.items.length + 1
     );
