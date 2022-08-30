@@ -16,7 +16,7 @@ import { itemInputs } from "../src/views/Items/const";
 // const baseURL = "https://stupendous-chaja-374541.netlify.app/";
 const baseURL = "http://localhost:3000/";
 test.describe("items test", () => {
-  test.only("successful item post", async ({ page }) => {
+  test("successful item post", async ({ page }) => {
     await page.goto(`${baseURL}`);
     await itemsGetBeforeCreateNewItem(page);
     await page.locator('a:has-text("Items")').click();
