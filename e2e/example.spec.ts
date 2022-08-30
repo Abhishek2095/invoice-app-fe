@@ -70,7 +70,7 @@ test.describe("items test", () => {
     page.locator("text=Something went wrong");
   });
 
-  test.only("item form validations", async ({ page }) => {
+  test("item form validations", async ({ page }) => {
     await page.goto(`${baseURL}`);
     await itemsGetBeforeCreateNewItem(page);
     await page.locator('a:has-text("Items")').click();
