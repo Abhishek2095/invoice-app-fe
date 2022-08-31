@@ -84,38 +84,11 @@ test.describe("items test", () => {
       (input) => `${input.label} is required`
     );
 
-    // await expect(page.locator(`text=hello`)).toHaveText(`hello`);
-
-    // await expect(page.locator(`text=${emptyFieldErrors[0]}`)).toHaveText(
-    //   `${emptyFieldErrors[0]}`
-    // );
-
-    // await expect(page.locator(`text=${emptyFieldErrors[0]}`)).toHaveText(
-    //   `${emptyFieldErrors[0]}`
-    // );
-
-    // await expect(page.locator(`text=${emptyFieldErrors[1]}`)).toHaveText(
-    //   `${emptyFieldErrors[1]}`
-    // );
-
-    // await expect(page.locator(`text=${emptyFieldErrors[2]}`)).toHaveText(
-    //   `${emptyFieldErrors[2]}`
-    // );
-
-    // await expect(page.locator(`text=${emptyFieldErrors[3]}`)).toHaveText(
-    //   `${emptyFieldErrors[3]}`
-    // );
-
     for (let i = 0; i < emptyFieldErrors.length; i++) {
       await expect(page.locator(`text=${emptyFieldErrors[i]}`)).toHaveText(
         `${emptyFieldErrors[i]}`
       );
     }
-
-    // emptyFieldErrors.forEach(async (errMsg) => {
-    //   console.log(errMsg);
-    //   await expect(page.locator(`text=${errMsg}`)).toHaveText(`${errMsg}`);
-    // });
 
     // await page.fill('[placeholder="Item name"]', itemToAdd.Name);
     // await page.fill(
