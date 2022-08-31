@@ -1,5 +1,5 @@
 import React from "react";
-import { usePagination, DOTS } from "./usePagination";
+import { DOTS, getPaginationRange } from "./getPaginationRange";
 import "./pagination.css";
 const Pagination = (props) => {
   const {
@@ -10,7 +10,7 @@ const Pagination = (props) => {
     pageSize,
   } = props;
 
-  const paginationRange = usePagination({
+  const paginationRange = getPaginationRange({
     currentPage,
     totalCount,
     siblingCount,
@@ -39,13 +39,10 @@ const Pagination = (props) => {
       >
         <div className="arrow left" />
       </li>
-      {paginationRange.map((pageNumber) => {
+      {paginationRange.map((pageNumber, index) => {
         if (pageNumber === DOTS) {
           return (
-            <li
-              className="pagination-item dots"
-              key={`currentPage${pageNumber}${pageNumber === DOTS}`}
-            >
+            <li className="pagination-item dots" key={index}>
               &#8230;
             </li>
           );

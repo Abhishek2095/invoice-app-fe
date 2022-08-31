@@ -1,5 +1,3 @@
-import { useMemo } from "react";
-
 export const DOTS = "...";
 
 const range = (start, end) => {
@@ -7,13 +5,13 @@ const range = (start, end) => {
   return Array.from({ length }, (_, idx) => idx + start);
 };
 
-export const usePagination = ({
+export const getPaginationRange = ({
   totalCount,
   pageSize,
   siblingCount = 1,
   currentPage,
 }) => {
-  const paginationRange = useMemo(() => {
+  const paginationRange = () => {
     const totalPageCount = Math.ceil(totalCount / pageSize);
 
     const totalPageNumbers = siblingCount + 5;
@@ -54,7 +52,7 @@ export const usePagination = ({
       let middleRange = range(leftSiblingIndex, rightSiblingIndex);
       return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex];
     }
-  }, [totalCount, pageSize, siblingCount, currentPage]);
+  };
 
-  return paginationRange;
+  return paginationRange();
 };
