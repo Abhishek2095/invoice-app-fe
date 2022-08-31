@@ -11,6 +11,7 @@ import "./AddInvoice.css";
 import { Delete } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import SaveIcon from "@mui/icons-material/Save";
+import Total from "./Total";
 
 const AddInvoice = () => {
   const getDateString = (days = 0) => {
@@ -307,7 +308,7 @@ const AddInvoice = () => {
                 onChange={onChange}
               />
             </div>
-            <div className="total">
+            {/* <div className="total">
               <ShowTable
                 data={itemList}
                 columns={itemTotalColumn}
@@ -317,7 +318,8 @@ const AddInvoice = () => {
                 <div className="label">Total</div>
                 <div className="amount">${total}</div>
               </div>
-            </div>
+            </div> */}
+            <Total data={itemList} columns={itemTotalColumn} />
           </div>
         </div>
       </form>

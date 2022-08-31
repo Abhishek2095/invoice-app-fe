@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import "../../components/Form/formInput.css";
 import "./AddInvoice.css";
 import AddIcon from "@mui/icons-material/Add";
+import Total from "./Total";
 
 const ViewInvoices = () => {
   const [filteredInvoiceList, setFilteredInvoiceList] = useState([]);
@@ -162,7 +163,8 @@ const ViewInvoices = () => {
           <br />
           {customer.Address}
         </div>
-        <ShowTable data={invoice.InvoiceItems} columns={itemColumn} />
+        {/* <ShowTable data={invoice.InvoiceItems} columns={itemColumn} /> */}
+        <Total data={invoice.InvoiceItems} columns={itemColumn} />
         <Button onClick={updateStatus} label="Update Status" />
       </ModalTest>
       {/* <input type="text" placeholder="Type to search" onChange={handleChange} /> */}
