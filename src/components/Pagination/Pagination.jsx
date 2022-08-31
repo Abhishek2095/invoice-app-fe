@@ -35,7 +35,7 @@ const Pagination = (props) => {
       <li
         className={`pagination-item${currentPage === 1 ? " disabled" : ""}`}
         onClick={onPrevious}
-        key={`prev-page${currentPage === 1 ? " disabled" : " enabled"}`}
+        key={`prev-page${currentPage === 1}`}
       >
         <div className="arrow left" />
       </li>
@@ -67,9 +67,7 @@ const Pagination = (props) => {
           currentPage === lastPage ? " disabled" : ""
         }`}
         onClick={onNext}
-        key={`right arrow${
-          currentPage === lastPage ? " disabled" : " enabled"
-        }`}
+        key={`right arrow${currentPage === lastPage}`}
       >
         <div className="arrow right" />
       </li>
