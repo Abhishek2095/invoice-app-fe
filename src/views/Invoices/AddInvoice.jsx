@@ -1,6 +1,6 @@
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "../../components/Buttons/Button";
 import FormInput from "../../components/Form/FormInput";
 import ModalTest from "../../components/Modal/Modal";
@@ -41,16 +41,7 @@ const AddInvoice = () => {
   });
 
   const [itemList, setItemList] = useState([]);
-  const [total, setTotal] = useState(0);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (itemList.length !== 0) {
-      setTotal(itemList.reduce((prev, curr) => prev + curr.Amount, 0));
-    } else {
-      setTotal(0);
-    }
-  }, [itemList]);
 
   function toggleCustomerModal() {
     setCustomerModalOpen(!isCustomerModalOpen);
@@ -159,9 +150,6 @@ const AddInvoice = () => {
     };
     setItemList([...itemList, item]);
     setInvoice({ ...invoice, Items: [...invoice.Items, item] });
-    setTotal((prevTotal) =>
-      itemList.reduce((prev, curr) => prev + curr.Amount, 0)
-    );
   };
 
   const quantityChangeHandle = (event, row) => {
@@ -178,14 +166,11 @@ const AddInvoice = () => {
         return item;
       })
     );
-    // const tempTotal =
-    setTotal(itemList.reduce((prev, curr) => prev + curr.Amount, 0));
   };
 
   const itemDeleteHandler = (row) => {
     const updatedItemList = itemList.filter((item) => row.rowId !== item.rowId);
     setItemList(updatedItemList);
-    setTotal(itemList.reduce((prev, curr) => prev + curr.Amount, 0));
   };
 
   const itemColumn = [
@@ -308,17 +293,6 @@ const AddInvoice = () => {
                 onChange={onChange}
               />
             </div>
-            {/* <div className="total">
-              <ShowTable
-                data={itemList}
-                columns={itemTotalColumn}
-                emptyMsg=""
-              />
-              <div className="totalAmount">
-                <div className="label">Total</div>
-                <div className="amount">${total}</div>
-              </div>
-            </div> */}
             <Total data={itemList} columns={itemTotalColumn} />
           </div>
         </div>
