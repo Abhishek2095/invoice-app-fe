@@ -54,6 +54,7 @@ const ViewInvoices = () => {
     setInvoice({});
     setCustomer({});
     const invoiceId = row.Id;
+    let tempInvoice = null;
     try {
       const invoiceRequest = await axios.get(
         `http://localhost:8080/v1/invoice/${invoiceId}`
@@ -62,7 +63,7 @@ const ViewInvoices = () => {
         `http://localhost:8080/v1/item/items`
       );
       const itemList = itemsRequest.data?.items;
-      let tempInvoice = invoiceRequest.data;
+      tempInvoice = invoiceRequest.data;
       tempInvoice.InvoiceItems = tempInvoice?.InvoiceItems.map(
         (invoiceItem) => {
           const item = itemList.find((item) => item.Id === invoiceItem.ItemId);
@@ -79,7 +80,7 @@ const ViewInvoices = () => {
       console.log("bad request error - invoice");
       console.log(error);
     }
-    const customerId = invoice?.CustomerId;
+    const customerId = tempInvoice.CustomerId;
     try {
       const customerRequest = await axios.get(
         `http://localhost:8080/v1/customer/${customerId}`
