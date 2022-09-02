@@ -41,15 +41,6 @@ const ViewInvoices = () => {
     setIsModalOpen(!isModalOpen);
   }
 
-  // const handleChange = (event) => {
-  // const val = event.target.value;
-  // axios
-  //   .get(`http://localhost:8080/v1/invoice/?field=name&value=${val}`)
-  //   .then((response) => {
-  //     setFilteredInvoiceList(response.data || []);
-  //   });
-  // };
-
   const showInvoice = async (row) => {
     setInvoice({});
     setCustomer({});
@@ -93,13 +84,6 @@ const ViewInvoices = () => {
     }
   };
 
-  const itemColumn = [
-    { field: "Name", header: "Name" },
-    { field: "Quantity", header: "Quantity", prefix: "x" },
-    { field: "Price", header: "Price", prefix: "$" },
-    { field: "Amount", header: "Amount", prefix: "$" },
-  ];
-
   const updateStatus = async () => {
     const invoiceId = invoice.Id;
     const updatedStatus = invoice.Status === "paid" ? "unpaid" : "paid";
@@ -136,6 +120,13 @@ const ViewInvoices = () => {
     { field: "Amount", header: "Amount" },
   ];
 
+  const itemColumn = [
+    { field: "Name", header: "Name" },
+    { field: "Quantity", header: "Quantity", prefix: "x" },
+    { field: "Price", header: "Price", prefix: "$" },
+    { field: "Amount", header: "Amount", prefix: "$" },
+  ];
+
   return (
     <div className="container">
       <h1>
@@ -164,7 +155,6 @@ const ViewInvoices = () => {
           <br />
           {customer.Address}
         </div>
-        {/* <ShowTable data={invoice.InvoiceItems} columns={itemColumn} /> */}
         <Total data={invoice.InvoiceItems} columns={itemColumn} />
         <Button onClick={updateStatus} label="Update Status" />
       </ModalTest>
