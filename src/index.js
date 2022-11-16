@@ -12,6 +12,7 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
+<<<<<<< HEAD
 
 /*
 some code to push
@@ -20,3 +21,5 @@ some code to push
 /*
 some code to push 2
 */
+=======
+>>>>>>> parent of 108b0b6 (c1)
