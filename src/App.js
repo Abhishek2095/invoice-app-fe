@@ -18,3 +18,7 @@ function App() {
 }
 
 export default App;
+
+/*
+changes from secondary branch merged to master immediately
+*/
