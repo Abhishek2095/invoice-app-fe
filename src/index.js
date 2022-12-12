@@ -15,8 +15,12 @@ root.render(
 
 /*
 <<<<<<< HEAD
+<<<<<<< HEAD
 some changes
 =======
 some content
 >>>>>>> 58058b8 (c4)
+=======
+some content
+>>>>>>> master
 */
